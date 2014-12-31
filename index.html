@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>
+<title>My first PHP Page</title>
+</head>
+<body>
+bleh
+
+<script>
+Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
+var TestObject = Parse.Object.extend("TestObject");
+var testObject = new TestObject();
+testObject.save({foo: "bar"}).then(function(object) {
+  alert("yay! it worked");
+});
+
+var GameScore = Parse.Object.extend("something");
+var query = new Parse.Query(GameScore);
+query.get("vRNYbTWwuW", {
+  success: function(gameScore) {
+  
+	alert(gameScore.get("name"));  	
+    // The object was retrieved successfully.
+  },
+  error: function(object, error) {
+    // The object was not retrieved successfully.
+    // error is a Parse.Error with an error code and message.
+  }
+});
+</script>
+</body>
+</html>
