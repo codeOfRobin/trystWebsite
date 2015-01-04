@@ -3,18 +3,49 @@
 list-style-type: none;
 display: inline;
 }
-#page1
-{
-height: 400px;
-background-color: aqua;
+/*
+	Demo Styles: NOT REQUIRED
+*/
+html,
+body {
+  margin: 0;
+  height: 100%
 }
 
-#page2
-{
-height: 500px;
+h1,
+p {
+  margin: 0;
+  padding: 0;
 }
 
-#page3
-{
-height: 600px;
+header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+section {
+  text-align: center;
+  color: #EFEFEF;
+}
+
+.full-screen {
+  height: 100%; /* makes panels the entire window height */
+}
+
+.blue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blue {
+	background-color: #3883d8;
+}
+.red {
+	background-color: #cf3535;
+}
+.orange {
+	background-color: #ea6300;
+	font-size: 50px;
 }

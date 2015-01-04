@@ -6,6 +6,10 @@
 </head>
 <body>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+<script src="js/jquery.scrollmagic.min.js"></script>
+<script src="js/jquery.scrollmagic.debug.js"></script>
+
 
 <div id="nav">
 	<ul>
@@ -17,25 +21,73 @@
 	</ul>
 </div>
 
-<div id="page1">
-  <a id="home"></a>
-    About page content goes here.
-</div>
 
-<div id="page2">
-  <a id="prakriti"></a>
-    Portfolio page content goes here.
-</div>
+<main class="full-screen" role="main">
+  <section class="full-screen blue">
+    <div>
+      <h1>Basic Pin</h1>
+      <p>Elements are pinned for their respective pixel value set as the duration and released again.</p>
+    </div>
+  </section>
 
-<div id="page3">
-  <a id="guestLectures"></a>
-    Contact page content goes here.
-</div>
-<div>
-<a id="sponsors"></a>
-	Sponsors go here.
-</div>
+  <section id="pinned-trigger1" class="full-screen orange">
+    <div id="pinned-element1">
+      <p>This element will be pinned once it's trigger hits the top of the viewport and will have a duration of window height minus 100</p>
+    </div> 
+  </section>
+
+  <section id="pinned-trigger2" class="full-screen red">
+    <div id="pinned-element2">
+      <p>This element will be pinned for a duration of 150px</p>
+    </div>
+  </section>
+  
+  <section class="full-screen blue">
+    <div>
+      <p>Section Four!</p>
+    </div>
+  </section>
+</main>
 <script>
+controller = new ScrollMagic();
+
+// Scene Handler
+var scene = new ScrollScene({
+  triggerElement: "#pinned-trigger1", // point of execution
+  duration: $(window).height()-100, // pin element for the window height - 1
+  triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
+  reverse: true // allows the effect to trigger when scrolled in the reverse direction
+})
+.setPin("#pinned-element1"); // the element we want to pin
+
+// Scene2 Handler
+var scene2 = new ScrollScene({
+  triggerElement: "#pinned-trigger2", // point of execution
+  duration: 150 // pin the element for a total of 400px
+
+})
+.setPin("#pinned-element2"); // the element we want to pin
+
+
+var scale_tween = TweenMax.to('#pinned-element1', 1, {
+  transform: 'scale(.5)',
+  ease: Linear.easeNone});
+
+var scale_scene = new ScrollScene({
+  triggerElement: '#scale-trigger',
+yoyo:true})
+.setTween(scale_tween);
+
+
+
+// Add Scenes to ScrollMagic Controller
+controller.addScene([
+  scene,
+  scene2,
+  scale_scene
+]);
+
+
 Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
 /*
 var TestObject = Parse.Object.extend("TestObject");
