@@ -3,12 +3,15 @@
 <script src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>
 <title>My first PHP Page</title>
 <link rel="stylesheet" href="css/styles.css">
+<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
 <script src="js/jquery.scrollmagic.min.js"></script>
 <script src="js/jquery.scrollmagic.debug.js"></script>
+
+	<div id="content-wrapper">
 
 
 <div id="nav">
@@ -22,6 +25,72 @@
 </div>
 
 
+
+<section class="demo" id="parallax">
+<div id="parallax1">
+<p id="asd">HOW COOL IS THIS?</p>
+</div>
+
+<div id="parallax2">
+</div>
+</section>
+
+
+
+<script>
+var controller;
+controller = new ScrollMagic({
+		  			globalSceneOptions: {
+		  				triggerHook: "onLeave"
+		  			}
+		  		});
+new ScrollScene({
+						triggerElement: "section#parallax",
+						duration: $(window).height() + 300,
+						offset: -150
+					})
+					.addTo(controller)
+					.triggerHook("onCenter")
+					.setTween(new TimelineMax().add([
+						TweenMax.to("#parallax #parallax1", 1, {backgroundPosition: "0 260%", ease: Linear.easeNone}),
+					]));
+
+				var startpin = new ScrollScene({
+						duration: 200
+					})
+					.setPin("#parallax #parallax1 #asd")
+					.addTo(controller);
+Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
+/*
+var TestObject = Parse.Object.extend("TestObject");
+var testObject = new TestObject();
+testObject.save({foo: "bar"}).then(function(object) {
+  alert("yay! it worked");
+});
+
+*/
+var GameScore = Parse.Object.extend("something");
+var query = new Parse.Query(GameScore);
+query.get("vRNYbTWwuW", {
+  success: function(gameScore) {
+	$( "body" ).append(gameScore.get("name"));
+/* 	document.write(gameScore.get("name"));  	 */
+    // The object was retrieved successfully.
+  },
+  error: function(object, error) {
+  document.write(Parse.Error.message);
+    // The object was not retrieved successfully.
+    // error is a Parse.Error with an error code and message.
+  }
+});
+</script>
+	</div>
+</body>
+</html>
+
+
+
+<!--
 <main class="full-screen" role="main">
   <section class="full-screen blue">
     <div>
@@ -86,31 +155,4 @@ controller.addScene([
   scene2,
   scale_scene
 ]);
-
-
-Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
-/*
-var TestObject = Parse.Object.extend("TestObject");
-var testObject = new TestObject();
-testObject.save({foo: "bar"}).then(function(object) {
-  alert("yay! it worked");
-});
-
-*/
-var GameScore = Parse.Object.extend("something");
-var query = new Parse.Query(GameScore);
-query.get("vRNYbTWwuW", {
-  success: function(gameScore) {
-	$( "body" ).append(gameScore.get("name"));
-/* 	document.write(gameScore.get("name"));  	 */
-    // The object was retrieved successfully.
-  },
-  error: function(object, error) {
-  document.write(Parse.Error.message);
-    // The object was not retrieved successfully.
-    // error is a Parse.Error with an error code and message.
-  }
-});
-</script>
-</body>
-</html>
+-->

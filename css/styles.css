@@ -49,3 +49,27 @@ section {
 	background-color: #ea6300;
 	font-size: 50px;
 }
+
+#parallax1
+{
+height: 100%;
+background-image: url("http://www.paramore.net/sites/g/files/g2000001591/f/styles/photo_detail_large/public/201412/10850124_10152574102985748_7642563119808768682_n.jpg");
+background-size: cover;
+position: relative;
+}
+
+#parallax2
+{
+height: 100%;
+background-image: url("http://www.paramore.net/sites/g/files/g2000001591/f/styles/photo_detail_large/public/IMG_3986.JPG");
+background-size: cover;
+}
+
+#parallax1 p
+{
+font-family: 'Shadows Into Light', cursive;
+font-size: 50px;
+}
+
+
+
