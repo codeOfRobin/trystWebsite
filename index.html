@@ -3,7 +3,7 @@
 <script src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>
 <title>My first PHP Page</title>
 <link rel="stylesheet" href="css/styles.css">
-<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -15,6 +15,7 @@
 
 
 <div id="nav">
+<span class="navSpan">
 	<ul>
 		<li><a href="#home">Home</a></li>
 		<li><a href="#prakriti">prakriti</a></li>
@@ -22,6 +23,7 @@
 		<li><a href="#sponsors">Sponsors</a></li>
 		
 	</ul>
+</span>
 </div>
 
 
@@ -30,36 +32,70 @@
 <div id="parallax1">
 <p id="asd">HOW COOL IS THIS?</p>
 </div>
+</section>
+
+
+<section id="guestLectures">
+<h3>
+	Guest lectures
+</h3>
+<div>
+<button id="speaker1" class="speakerButton"></button>
+<button id="speaker2" class="speakerButton"></button>
+<button id="speaker3" class="speakerButton"></button>
+<button id="speaker4" class="speakerButton"></button>
+</div>
+<span id="speakerDescription">Add Relevant Description about the Guest Lecturer and the subject of his lecture. Comment on the duration and the takeaway from the lecture. Keep the description succinct. Two lines at max.</span>
+</section>
 
 <div id="parallax2">
 </div>
-</section>
 
 
 
 <script>
+
+
+
 var controller;
+
 controller = new ScrollMagic({
 		  			globalSceneOptions: {
 		  				triggerHook: "onLeave"
 		  			}
 		  		});
+var sceneOptions = {triggerElement: "section#guestLectures",duration: 200, offset: -100};
+				var elements = $("button.speakerButton");
+
+// fade
+for(var i=0;i<4;i++)
+{ 
+	new ScrollScene(sceneOptions)
+		.addTo(controller)
+		.triggerHook("onCenter")
+		.triggerElement(elements[i])
+		.setTween(TweenMax.from(elements[i], 1, {autoAlpha: 0}));
+}
 new ScrollScene({
-						triggerElement: "section#parallax",
+						triggerElement: "div#parallax2",
 						duration: $(window).height() + 300,
 						offset: -150
 					})
 					.addTo(controller)
 					.triggerHook("onCenter")
 					.setTween(new TimelineMax().add([
-						TweenMax.to("#parallax #parallax1", 1, {backgroundPosition: "0 260%", ease: Linear.easeNone}),
+						TweenMax.to("#parallax2", 1, {backgroundPosition: "0 300%", ease: Linear.easeNone}),
 					]));
 
 				var startpin = new ScrollScene({
-						duration: 200
+						duration: window.innerHeight-100
 					})
 					.setPin("#parallax #parallax1 #asd")
 					.addTo(controller);
+				var sceneOptions = {duration: 200, offset: -100};
+				
+								
+
 Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
 /*
 var TestObject = Parse.Object.extend("TestObject");
