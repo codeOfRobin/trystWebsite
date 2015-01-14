@@ -45,8 +45,19 @@
 <button id="speaker3" class="speakerButton"></button>
 <button id="speaker4" class="speakerButton"></button>
 </div>
-<span id="speakerDescription">Add Relevant Description about the Guest Lecturer and the subject of his lecture. Comment on the duration and the takeaway from the lecture. Keep the description succinct. Two lines at max.</span>
+<div id="speakerDescription"
+<p>Add Relevant Description about the Guest Lecturer and the subject of his lecture. Comment on the duration and the takeaway from the lecture. Keep the description succinct. Two lines at max.</p>
+</div>
+
+<div id="lectureInfo">
+<p>
+</div>
 </section>
+
+<div id="sponsors">
+
+</div>
+
 
 <div id="parallax2">
 </div>
@@ -84,7 +95,7 @@ new ScrollScene({
 					.addTo(controller)
 					.triggerHook("onCenter")
 					.setTween(new TimelineMax().add([
-						TweenMax.to("#parallax2", 1, {backgroundPosition: "0 300%", ease: Linear.easeNone}),
+						TweenMax.to("#parallax2", 1, {backgroundPosition: "0 1000%", ease: Linear.easeNone}),
 					]));
 
 				var startpin = new ScrollScene({
@@ -105,13 +116,16 @@ testObject.save({foo: "bar"}).then(function(object) {
 });
 
 */
+/*
 var GameScore = Parse.Object.extend("something");
 var query = new Parse.Query(GameScore);
 query.get("vRNYbTWwuW", {
   success: function(gameScore) {
 	$( "body" ).append(gameScore.get("name"));
+*/
 /* 	document.write(gameScore.get("name"));  	 */
     // The object was retrieved successfully.
+/*
   },
   error: function(object, error) {
   document.write(Parse.Error.message);
@@ -119,6 +133,7 @@ query.get("vRNYbTWwuW", {
     // error is a Parse.Error with an error code and message.
   }
 });
+*/
 </script>
 	</div>
 </body>

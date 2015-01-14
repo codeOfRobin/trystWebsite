@@ -89,7 +89,7 @@ position: relative;
 {
 height: 100%;
 background-image: url("http://www.paramore.net/sites/g/files/g2000001591/f/styles/photo_detail_large/public/IMG_3986.JPG");
-background-size: cover;
+background-size:150%;
 }
 
 #parallax1 p
@@ -122,8 +122,9 @@ background-size: cover;
 #speakerDescription
 {
 font-family: Avenir-Book;
-font-size: 42;
+font-size: 21;
 margin-bottom: 39.5px;
+background-color:#fafafa;
 }
 
 
