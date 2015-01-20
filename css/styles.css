@@ -112,7 +112,7 @@ font-size: 50px;
 height: 206px;
 width: 206px;
 border-radius: 103px;
-margin: 80px 60px 80px;
+margin: 80px 40px 80px;
 background-image: url("http://www.technologyreview.com/sites/default/files/styles/body_embed/public/legacy/0312-lewin-a_x616.jpg");
 background-position: center center;
 background-repeat: no-repeat;
@@ -145,7 +145,7 @@ font-family: din;
 font-size: 50; 	
 text-align: center;
 margin: 5px 0 5px;
-min-width: 260px;
+min-width: 250px;
  
 }
 
@@ -191,7 +191,52 @@ font-size: 24;
 	border-radius: 137.5px;
 }
 	
+#prakriti
+{
+display: inline;
 
+}
+
+#prakriti img
+{
+width: 25%;
+margin:40px 20px 40px; 
+float: left;
+}
+
+#prakriti p
+{
+width: 60%;
+font-family: Avenir-Book;
+font-size: 32;
+color: black;
+margin: auto;
+text-align: center;
+}
+
+
+#prakriti h3
+{
+width: 75%;
+font-family: din;
+font-size: 72;
+color: black;
+}
+
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+ 
+.clearfix:after {
+  clear: both;
+}
+ 
+.clearfix {
+  zoom: 1; /* ie 6/7 */
+}
 
 
 
