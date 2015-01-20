@@ -149,26 +149,42 @@ text-align: center;
 .lectureInfoHeading p
 {
 
-font-family: Helvetica-Neue;
+font-family: Avenir-Book;
 font-size: 25; 	
 text-align: center;
 }
 
 #sponsors
 {
-	list-style-type: none;
 	width: 99%;
+}
+
+.sponsorItem
+{
+	list-style-type: none;
+	display: inline-block;
+	width : 33%;
+	text-align: center;
+	padding: 10px 0 10px;
+}
+
+.sponsorItem a span
+{
+font-family: din;
+font-size: 32;
+}
+
+.sponsorItem p
+{
+font-family: Avenir-Book;
+font-size: 24;
 }
 .sponsorItem img
 {
-	width: 275px;
+
 	height: 275px;
+	width: 275px;
 	border-radius: 137.5px;
-}
-.sponsorItem
-{
-	display: inline;
-	width : 33%;
 }
 	
 
