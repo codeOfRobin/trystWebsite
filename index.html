@@ -47,19 +47,36 @@
 </div>
 <div id="speakerDescription"
 <p>Add Relevant Description about the Guest Lecturer and the subject of his lecture. Comment on the duration and the takeaway from the lecture. Keep the description succinct. Two lines at max.</p>
-</div>
 
-<div id="lectureInfo">
-<p>
+<div>
+<ul id="lectureInfo">
+<li class="lectureInfoHeading">LECTURER<br> <p>Walter</p></li>
+<li class="lectureInfoHeading">VENUE<br> <p>Dogra Hall</p></li>
+<li class="lectureInfoHeading">DATE<br> <p>27 Feb</p></li>
+<li class="lectureInfoHeading">STARTS<br> <p>1200Hrs</p></li>
+<li class="lectureInfoHeading">ENDS<br> <p>2200hrs</p></li>
+</ul>
 </div>
 </section>
 
 <div id="sponsors">
-
+<ul>
+	<li class="sponsorItem">
+		<img src="./images/robosapiens.png">	adsfkjanfdskj	
+	</li>
+	<li class="sponsorItem">
+		<img src="./images/dice.png">		adsfadf
+	</li>
+	<li class="sponsorItem">
+		<img src="./images/iphone.png">	ads	
+	</li>
+	
+</ul>
 </div>
 
 
 <div id="parallax2">
+
 </div>
 
 
@@ -95,7 +112,7 @@ new ScrollScene({
 					.addTo(controller)
 					.triggerHook("onCenter")
 					.setTween(new TimelineMax().add([
-						TweenMax.to("#parallax2", 1, {backgroundPosition: "0 1000%", ease: Linear.easeNone}),
+						TweenMax.to("#parallax2", 1, {backgroundPosition: "0 100%", ease: Linear.easeNone}),
 					]));
 
 				var startpin = new ScrollScene({
