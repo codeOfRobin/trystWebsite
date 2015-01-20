@@ -94,7 +94,7 @@ background-size:150%;
 
 #parallax1 p
 {
-font-family: 'Shadows Into Light', cursive;
+font-family: din, cursive;
 font-size: 50px;
 }
 
@@ -140,10 +140,13 @@ width: 90%;
 {
 list-style-type: none;
 width: 18%;
-display: table-cell;
+display: inline-block;
 font-family: din;
 font-size: 50; 	
 text-align: center;
+margin: 5px 0 5px;
+min-width: 260px;
+ 
 }
 
 .lectureInfoHeading p
@@ -156,16 +159,17 @@ text-align: center;
 
 #sponsors
 {
-	width: 99%;
+	width: 100%;
+	text-align: center;
 }
 
 .sponsorItem
 {
-	list-style-type: none;
 	display: inline-block;
-	width : 33%;
+	width : 30%;
 	text-align: center;
-	padding: 10px 0 10px;
+	margin: 5px 10px 5px;
+	min-width: 300px;
 }
 
 .sponsorItem a span
