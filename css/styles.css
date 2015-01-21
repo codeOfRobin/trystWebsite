@@ -6,6 +6,7 @@
 #nav
 {
 background-color: #145B75;
+text-align: center;
 }
 #nav li
 {
@@ -15,7 +16,6 @@ display: inline;
 
 #nav span
 {
-float: right;
 padding-right: 10px;
 }
 
@@ -26,7 +26,7 @@ text-decoration: none;
 font-family: din;
 padding-right: 20px;
 font-weight: bold;
-font-size: 64;
+font-size: 50;
 
 }
 /*
@@ -235,6 +235,55 @@ color: black;
  
 .clearfix {
   zoom: 1; /* ie 6/7 */
+}
+
+
+@media screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+    
+    #nav li
+    {
+	    width: 20%;
+		margin: auto;
+    }
+    
+    #nav li a
+    {
+	    font-size: 20;
+    }
+    
+    .sponsorItem
+	{
+		width: 90%;
+	}
+	
+	.sponsorItem img
+	{
+		width:225px;
+		height: 225px;
+	}
+	.speakerButton
+	{
+		margin: 10px;
+	}
+	
+	#prakriti 
+	{
+		display: block;
+		width: 90%;
+		text-align: center;
+		margin: auto;
+		float: none;
+	}
+	
+	#prakriti img
+	{
+		width:225px;
+		height: 225px;
+	}
+    
 }
 
 
