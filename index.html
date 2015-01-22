@@ -1,13 +1,14 @@
 <html>
 <head>
-<script src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>
+<!--<script src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>-->
 <title>My first PHP Page</title>
 <link rel="stylesheet" href="css/styles.css">
-<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!--<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>-->
 </head>
 <body>
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+<script src="js/_dependent/jquery.min.js"></script>
+<script src="js/_dependent/greensock/TweenMax.min.js"></script>
 <script src="js/jquery.scrollmagic.min.js"></script>
 <script src="js/jquery.scrollmagic.debug.js"></script>
 
@@ -135,30 +136,61 @@
 
 <section id="events">
 	<div class="events">
+
 		<div class="icons">
 			<i class="fa fa-chevron-circle-right" id="icon1"></i>
-
+			<i class="fa fa-chevron-circle-right" id="icon2"></i>
+			<i class="fa fa-chevron-circle-right" id="icon3"></i>
+			<i class="fa fa-chevron-circle-right" id="icon4"></i>
 		</div>
 
 		<div class="days">
 			<div class="day" id="day1">
 				<img src="images/Day_1.png">
+				<div class="text">DAY 1<br>27th February 2015</div>
 			</div>
 			<div class="day" id="day2">
 				<img src="images/Day_2.png">
+				<div class="text">DAY 2<br>28th February 2015</div>
 			</div>
 			<div class="day" id="day3">
 				<img src="images/Day_3.png">
+				<div class="text">DAY 3<br>01st March 2015</div>
 			</div>
 			<div class="day" id="day4">
 				<img src="images/Day_4.png">
+				<div class="text">DAY 4<br>02nd March 2015</div>
 			</div>
 		</div>
+
+		<div class="eventdb">
+		<table>
+			<tr>
+				<th>Event Name</th>
+				<th>Venue</th>
+				<th>Event Type</th>
+				<th>Starts</th>
+				<th>Ends</th>
+			</tr>
+			<tr>
+				<td>Walter Lewin Lecture</td>
+				<td>Dogra Hall</td>
+				<td>Lecture</td>
+				<td>1100</td>
+				<td>1330</td>
+			</tr>
+			<tr>
+				<td>Walter Lewin Lecture</td>
+				<td>Dogra Hall</td>
+				<td>Lecture</td>
+				<td>1100</td>
+				<td>1330</td>
+			</tr>
+		</table>
+	</div>
+
 	</div>
 </section>
-
-
-
 <script>
 
 
@@ -202,7 +234,7 @@ new ScrollScene({
 
 
 
-Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
+//Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
 /*
 var TestObject = Parse.Object.extend("TestObject");
 var testObject = new TestObject();
@@ -229,6 +261,96 @@ query.get("vRNYbTWwuW", {
   }
 });
 */
+$(function() {
+	console.log("ready");
+	$("i").mouseup(function(event) {
+		if ($(this).attr('id')=="icon1") {
+			if ($(this).hasClass("active")) {
+				TweenMax.to(".icons i#icon1", 0.6, {rotation:0});
+				TweenMax.staggerTo(".icons i:not(#icon1)", 0.6, {x:0,rotation:0},0.2);
+				TweenMax.staggerTo(".day:not(#day1)", 0.6, {x:0, ease:Back.easeOut},0.2);
+				$(this).removeClass("active");
+			} else {
+				console.log("inactive triggered");
+				$(this).addClass("active");
+				TweenMax.to(".icons i#icon1", 0.6, {rotation:180});
+				TweenMax.staggerTo(".icons i:not(#icon1)", 0.6, {x:window.innerWidth+100,rotation:180},0.2);
+				TweenMax.staggerTo(".day:not(#day1)", 0.6, {x:window.innerWidth+100}, 0.2);
+			}
+		}
+		else if ($(this).attr('id')=="icon2") {
+			if ($(this).hasClass("active")) {
+				console.log("active triggered");
+				//icon1 + icon2 to move back
+				TweenMax.to(".icons i:not(#icon3,#icon4)", 0.6, {xPercent:0,rotation:0});
+				//day1 + day2 to movwe back
+				TweenMax.to(".day:not(#day3,#day4)", 0.6, {xPercent:0, ease:Back.easeOut});
+				//icon3 + icon4 to move back
+				TweenMax.to(".icons i:not(#icon1,#icon2)", 0.6, {x:0,rotation:0});
+				//day3 + day4 to move back
+				TweenMax.to(".day:not(#day1,#day2)", 0.6, {xPercent:0, ease:Back.easeOut});
+				TweenMax.to(".day#day2 div.text",0.6,{x:0});
+				$(this).removeClass("active");
+			} else {
+				console.log("in2active triggered");
+				$(this).addClass("active");
+				//icon1 icon2 to go left
+				TweenMax.to(".icons i:not(#icon3,#icon4)", 0.6, {rotation:180, xPercent:-2100});
+				//day1 day 2 to go left
+				TweenMax.to(".day:not(#day3,#day4)", 0.6, {xPercent:-31});
+				//icon3 icon4 to go right
+				TweenMax.to(".icons i:not(#icon1,#icon2)", 0.6, {x:window.innerWidth+100,rotation:180});
+				//day3 day4 to go right
+				TweenMax.to(".day:not(#day1,#day2)", 0.6, {xPercent:100});
+				//text2 to go slightly right
+				TweenMax.to(".day#day2 div.text",0.6,{x:100});
+			}
+		}
+		else if ($(this).attr('id')=="icon3") {
+			if ($(this).hasClass("active")) {
+				console.log("active triggered");
+				//icon1 icon2 icon3 to go left
+				TweenMax.to(".icons i:not(#icon4)", 0.6, {rotation:0, xPercent:0});
+				//day1 day 2 day3 to go left
+				TweenMax.to(".day:not(#day4)", 0.6, {xPercent:0, ease:Back.easeOut});
+				//icon4 to go right
+				TweenMax.to(".icons i#icon4", 0.6, {x:0});
+				//day4 to go right
+				TweenMax.to(".day#day4", 0.6, {x:0, ease:Back.easeOut});
+				TweenMax.to(".day#day3 div.text",0.6,{x:0});
+				$(this).removeClass("active");
+			} else {
+				console.log("in2active triggered");
+				$(this).addClass("active");
+				//icon1 icon2 icon3 to go left
+				TweenMax.to(".icons i:not(#icon4)", 0.6, {rotation:180, xPercent:-5900});
+				//day1 day 2 day3 to go left
+				TweenMax.to(".day:not(#day4)", 0.6, {xPercent:-69.5});
+				//icon4 to go right
+				TweenMax.to(".icons i#icon4", 0.6, {x:window.innerWidth+100});
+				//day4 to go right
+				TweenMax.to(".day#day4", 0.6, {x:window.innerWidth+100});
+				TweenMax.to(".day#day3 div.text",0.6,{x:100});
+			}
+		}
+		else if ($(this).attr('id')=="icon4") {
+			if ($(this).hasClass("active")) {
+				console.log("active triggered");
+				TweenMax.to(".icons i#icon4", 0.6, {rotation:0});
+				TweenMax.to(".icons i:not(#icon4)", 0.6, {x:0,rotation:0},0.2);
+				TweenMax.to(".day:not(#day4)", 0.6, {x:0, ease:Back.easeOut, onComplete:function() {$(".eventdb").removeClass("left");}},0.2);
+				$(this).removeClass("active");
+			} else {
+				console.log("in2active triggered");
+				$(this).addClass("active");
+				$(".eventdb").addClass("left");
+				TweenMax.to(".icons i#icon4", 0.6, {rotation:180});
+				TweenMax.to(".icons i:not(#icon4)", 0.6, {x:-window.innerWidth-100,rotation:180},0.2);
+				TweenMax.to(".day:not(#day4)", 0.6, {x:-window.innerWidth-100}, 0.2);
+			}
+		}
+	});
+});
 </script>
 	</div>
 </body>
