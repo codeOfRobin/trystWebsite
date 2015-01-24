@@ -239,6 +239,9 @@ color: black;
 
 
 
+
+
+
 div.events {
   position:relative;
   height:100%;
@@ -281,6 +284,8 @@ div.events {
   max-width:100%;
 }
 
+
+
 .events .day {
   position:absolute;
 }
@@ -294,23 +299,35 @@ div.events {
 }
 
 .events .day#day1 .text {
-  left:6%;
+  left:1%;
   transform:rotate(-58deg);
+  -webkit-transform: rotate(-58deg);
+  -moz-transform: rotate(-58deg);
+
 }
 
 .events .day#day2 .text {
   left:28%;
-  transform:rotate(-54deg);
+  transform:rotate(-58deg);
+  -webkit-transform: rotate(-58deg);
+
+-moz-transform: rotate(-58deg);
 }
 
 .events .day#day3 .text {
   left:66%;
-  transform:rotate(-56deg);
+  transform:rotate(-58deg);
+  -webkit-transform: rotate(-58deg);
+-moz-transform: rotate(-58deg);
+
 }
 
 .events .day#day4 .text {
-  left:85%;
+  left:90%;
   transform:rotate(-56deg);
+  -webkit-transform: rotate(-58deg);
+-moz-transform: rotate(-58deg);
+
 }
 
 .eventdb {
@@ -348,6 +365,10 @@ div.events {
 		div.events
 	{
 		height:60%;
+	}
+	
+	.events .day .text {
+	font-size: 0.8em;
 	}
 }
 
@@ -401,5 +422,14 @@ div.events {
 	{
 		height:50%;
 	}
+	
+	.events .day .text {
+	font-size: 0.6em;
+	}
+	
+	.eventdb{
+	  font-size:0.8em;
+	}
+
 
 }

@@ -295,7 +295,14 @@ $(function() {
 				console.log("in2active triggered");
 				$(this).addClass("active");
 				//icon1 icon2 to go left
+				if (window.innerWidth>1200)
+				{
 				TweenMax.to(".icons i:not(#icon3,#icon4)", 0.6, {rotation:180, xPercent:-2100});
+				}
+				else
+				{
+					TweenMax.to(".icons i:not(#icon3,#icon4)", 0.6, {rotation:180, xPercent:-1500});
+				}
 				//day1 day 2 to go left
 				TweenMax.to(".day:not(#day3,#day4)", 0.6, {xPercent:-31});
 				//icon3 icon4 to go right
