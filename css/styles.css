@@ -238,10 +238,6 @@ color: black;
 }
 
 
-
-
-
-
 div.events {
   position:relative;
   height:100%;
@@ -254,6 +250,16 @@ div.events {
   height:100%;
   width:100%;
 }
+
+.events img {
+  height:100%;
+  max-width:100%;
+}
+
+.events .day {
+  position:absolute;
+}
+
 /* change any positioning and then you have to rework the jquery*/
 .icons i {
   top:80%;
@@ -277,17 +283,6 @@ div.events {
 
 .icons i#icon4 {
   left:38%;
-}
-
-.events img {
-  height:100%;
-  max-width:100%;
-}
-
-
-
-.events .day {
-  position:absolute;
 }
 
 .events .day .text {
@@ -337,10 +332,21 @@ div.events {
   z-index:-1;
   font-family:din;
   font-size:2em;
+  opacity:0;
 }
 
 .eventdb.left {
   left:8%;
+}
+
+#iconBack {
+  position:absolute;
+  z-index:-1;
+  top:9%;
+  left:0%;
+  color:black;
+  cursor:pointer;
+  opacity:0;
 }
 
 .eventdb table {
@@ -366,7 +372,7 @@ div.events {
 	{
 		height:60%;
 	}
-	
+
 	.events .day .text {
 	font-size: 0.8em;
 	}
@@ -422,11 +428,11 @@ div.events {
 	{
 		height:50%;
 	}
-	
+
 	.events .day .text {
 	font-size: 0.6em;
 	}
-	
+
 	.eventdb{
 	  font-size:0.8em;
 	}
