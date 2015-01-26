@@ -1,6 +1,6 @@
 <html>
 <head>
-<!--<script src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>-->
+<script src="http://www.parsecdn.com/js/parse-1.3.4.min.js"></script>
 <title>My first PHP Page</title>
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -32,7 +32,7 @@
 
 <section class="demo" id="parallax">
 <div id="parallax1">
-<p id="asd">HOW COOL IS THIS?</p>
+<p id="asd">TRYST 2015</p>
 </div>
 </section>
 
@@ -61,7 +61,66 @@
 </div>
 </section>
 
+
+<section id="parallax2">
+<!-- acculi iz robotics huehuehue -->
+<h3>Robotics</h3>
+<h5>Prizes over 2.5 lakh to be won!</h5>
+
+<div class="robot">
+	<h6>Mine Maze</h6>
+	<ul>
+	<li>Introduction:</li>
+	<li>problem statement:</li>
+	<li>For details: <a href="https://drive.google.com/file/d/0B3t0T_mEShehdEtzZ3VTcW1JeUk/view?usp=sharing">Click here</a>
+	<li>prize money:</li>
+	<li>registration:</li>
+	<li>contact details:</li>
+	</ul>
+</div>
+
+<div class="robot">
+	<h6>Robo-Soccer</h6>
+	<ul>
+	<li>Introduction:jagfhkdsbfkjashbfkasdbfkjahbdkjabsdfkjahsbdfknjashdbfnajhdsb</li>
+	<li>problem statement:</li>
+	<li>For details: <a href="https://drive.google.com/file/d/0B3t0T_mEShehbzA4Y3JLSFZjMHc/view?usp=sharing">Click here</a>
+	<li>prize money:</li>
+	<li>registration:</li>
+	<li>contact details:</li>
+	</ul>
+</div>
+
+<div class="robot">
+	<h6>Amphibian-bot</h6>
+	<ul>
+	<li>Introduction:</li>
+	<li>problem statement:</li>
+	<li>For details: <a href="https://drive.google.com/file/d/0B3t0T_mEShehbzA4Y3JLSFZjMHc/view?usp=sharing">Click here</a>
+	<li>prize money:</li>
+	<li>registration:</li>
+	<li>contact details:</li>
+	</ul>
+</div>
+
+<div class="robot">
+	<h6>Knight-bot (Robo-Wars)</h6>
+	<ul>
+	<li>Introduction:</li>
+	<li>problem statement:</li>
+	<li>For details: <a href="https://drive.google.com/file/d/0B3t0T_mEShehbzA4Y3JLSFZjMHc/view?usp=sharing">Click here</a>
+	<li>prize money:</li>
+	<li>registration:</li>
+	<li>contact details:</li>
+	</ul>
+</div>
+
+</section>
+
 <div id="sponsors">
+	<h3>
+		And now, our Sponsors
+	<h3>
 	<div class="sponsorItem">
 		<a href="">
 		<img src="./images/robosapiens.png">
@@ -132,8 +191,8 @@
 <h3>PRAKRITI</h3>
 <p>Add something relevant about prakriti here, if necessary use teh bottom space to add a full width image of showing a relevant image regarding prakriti.</p>
 </section>
-<div id="parallax2">
-</div>
+
+
 
 <section id="events">
 	<div class="events">
@@ -165,7 +224,7 @@
 		</div>
 
 		<div class="eventdb">
-		<table>
+		<table id="eventTable">
 			<tr>
 				<th><i class="fa fa-arrow-left" id="iconBack"></i>Event Name</th>
 				<th>Venue</th>
@@ -216,7 +275,7 @@ for(var i=0;i<4;i++)
 		.setTween(TweenMax.from(elements[i], 1, {autoAlpha: 0}));
 }
 new ScrollScene({
-						triggerElement: "div#parallax2",
+						triggerElement: "section#parallax2",
 						duration: $(window).height() + 300,
 						offset: -150
 					})
@@ -235,33 +294,11 @@ new ScrollScene({
 
 
 
-//Parse.initialize("Li0DVfIdRtXUacO4acPdSoSzqW1hps2DsRv5Qkiu", "3LfuCVh4YmuWDRrlBnbIEldDrysqd2WL5U1roSwA");
-/*
-var TestObject = Parse.Object.extend("TestObject");
-var testObject = new TestObject();
-testObject.save({foo: "bar"}).then(function(object) {
-  alert("yay! it worked");
-});
 
-*/
-/*
-var GameScore = Parse.Object.extend("something");
-var query = new Parse.Query(GameScore);
-query.get("vRNYbTWwuW", {
-  success: function(gameScore) {
-	$( "body" ).append(gameScore.get("name"));
-*/
-/* 	document.write(gameScore.get("name"));  	 */
-    // The object was retrieved successfully.
-/*
-  },
-  error: function(object, error) {
-  document.write(Parse.Error.message);
-    // The object was not retrieved successfully.
-    // error is a Parse.Error with an error code and message.
-  }
-});
-*/
+
+
+
+
 var active=0;
 $(function() {
 	console.log("ready");
@@ -282,6 +319,39 @@ $(function() {
 			if ($(this).attr('id')=="icon1") {
 				TweenMax.to(".day:not(#day1)", 0.6, {x:window.innerWidth+100});
 				active=1;
+				console.log("1 was clicked");
+				
+				
+				Parse.initialize("gXMF3SXAsbKMjgjSjzKRNK8djmuyIxoO2LPtlNyJ", "SjNcplOrnIfmaKKcXJeHdBODA5CSE7XNpGn4Cvyp");
+
+				var GameScore = Parse.Object.extend("event");				
+			    var date1 = new Date(Date.parse("2015-03-28 00:00:00"));
+			    var date2 = new Date(Date.parse("2015-03-01 00:00:00"));
+				var query = new Parse.Query(GameScore);
+				query.greaterThan("startingTime",date1);
+			    query.lessThan("startingTime",date2);
+				query.find({
+				  success: function(results) {
+				    alert("Successfully retrieved " + results.length + " scores.");
+				    
+				    // Do something with the returned Parse.Object values
+					for(var i=0; i<results.length; i++)
+					{
+						console.log(results[i].get("startingTime"));
+						if(results[i].get("startingTime").getDate()==1)
+						{	
+						var myRow="<tr><td><a class=\"fancybox\" data-fancybox-type=\"iframe\" href=\"/demo/iframe.html\">"+results[i].get("name")+"</a></td><td>"+results[i].get("venue")+"</td><td>"+results[i].get("category")+"</td><td>1100</td><td>1330</td></tr>"
+			 $("#eventTable tr:last").after(myRow);
+					
+						}
+					
+					}
+				  },
+				  error: function(error) {
+				    alert("Error: " + error.code + " " + error.message);
+				  }
+				});
+
 			}
 			else if ($(this).attr('id')=="icon2") {
 				//day1 day 2 to go left
@@ -291,6 +361,36 @@ $(function() {
 				//text2 to go slightly right
 				TweenMax.to(".day#day2 div.text",0.6,{x:100});
 				active=2;
+				
+				Parse.initialize("gXMF3SXAsbKMjgjSjzKRNK8djmuyIxoO2LPtlNyJ", "SjNcplOrnIfmaKKcXJeHdBODA5CSE7XNpGn4Cvyp");
+
+				var GameScore = Parse.Object.extend("event");				
+			    var date1 = new Date(Date.parse("2015-03-01 00:00:00"));
+			    var date2 = new Date(Date.parse("2015-03-02 00:00:00"));
+				var query = new Parse.Query(GameScore);
+				query.greaterThan("startingTime",date1);
+			    query.lessThan("startingTime",date2);
+				query.find({
+				  success: function(results) {
+				    alert("Successfully retrieved " + results.length + " scores.");
+				    
+				    // Do something with the returned Parse.Object values
+					for(var i=0; i<results.length; i++)
+					{
+						console.log(results[i].get("startingTime"));
+							
+						var myRow="<tr><td><a class=\"fancybox\" data-fancybox-type=\"iframe\" href=\"/demo/iframe.html\">"+results[i].get("name")+"</a></td><td>"+results[i].get("venue")+"</td><td>"+results[i].get("category")+"</td><td>1100</td><td>1330</td></tr>"
+			 $("#eventTable tr:last").after(myRow);
+					
+						
+					
+					}
+				  },
+				  error: function(error) {
+				    alert("Error: " + error.code + " " + error.message);
+				  }
+				});
+
 			}
 			else if ($(this).attr('id')=="icon3") {
 				//day1 day 2 day3 to go left
@@ -299,11 +399,73 @@ $(function() {
 				TweenMax.to(".day#day4", 0.6, {x:window.innerWidth+100});
 				TweenMax.to(".day#day3 div.text",0.6,{x:100});
 				active=3;
+				
+				
+				Parse.initialize("gXMF3SXAsbKMjgjSjzKRNK8djmuyIxoO2LPtlNyJ", "SjNcplOrnIfmaKKcXJeHdBODA5CSE7XNpGn4Cvyp");
+
+				var GameScore = Parse.Object.extend("event");				
+			    var date1 = new Date(Date.parse("2015-03-02 00:00:00"));
+			    var date2 = new Date(Date.parse("2015-03-03 00:00:00"));
+				var query = new Parse.Query(GameScore);
+				query.greaterThan("startingTime",date1);
+			    query.lessThan("startingTime",date2);
+				query.find({
+				  success: function(results) {
+				    alert("Successfully retrieved " + results.length + " scores.");
+				    
+				    // Do something with the returned Parse.Object values
+					for(var i=0; i<results.length; i++)
+					{
+						console.log(results[i].get("startingTime"));
+							
+						var myRow="<tr><td><a class=\"fancybox\" data-fancybox-type=\"iframe\" href=\"/demo/iframe.html\">"+results[i].get("name")+"</a></td><td>"+results[i].get("venue")+"</td><td>"+results[i].get("category")+"</td><td>1100</td><td>1330</td></tr>"
+			 $("#eventTable tr:last").after(myRow);
+					
+						
+					
+					}
+				  },
+				  error: function(error) {
+				    alert("Error: " + error.code + " " + error.message);
+				  }
+				});
+
 			}
 			else if ($(this).attr('id')=="icon4") {
 				$(".eventdb").addClass("left");
 				TweenMax.to(".day:not(#day4)", 0.6, {x:-window.innerWidth-100}, 0.2);
 				active=4;
+				
+				
+				Parse.initialize("gXMF3SXAsbKMjgjSjzKRNK8djmuyIxoO2LPtlNyJ", "SjNcplOrnIfmaKKcXJeHdBODA5CSE7XNpGn4Cvyp");
+
+				var GameScore = Parse.Object.extend("event");				
+			    var date1 = new Date(Date.parse("2015-03-03 00:00:00"));
+			    var date2 = new Date(Date.parse("2015-03-04 00:00:00"));
+				var query = new Parse.Query(GameScore);
+				query.greaterThan("startingTime",date1);
+			    query.lessThan("startingTime",date2);
+				query.find({
+				  success: function(results) {
+				    alert("Successfully retrieved " + results.length + " scores.");
+				    
+				    // Do something with the returned Parse.Object values
+					for(var i=0; i<results.length; i++)
+					{
+						console.log(results[i].get("startingTime"));
+						
+						var myRow="<tr><td><a class=\"fancybox\" data-fancybox-type=\"iframe\" href=\"/demo/iframe.html\">"+results[i].get("name")+"</a></td><td>"+results[i].get("venue")+"</td><td>"+results[i].get("category")+"</td><td>1100</td><td>1330</td></tr>"
+			 $("#eventTable tr:last").after(myRow);
+					
+						
+					
+					}
+				  },
+				  error: function(error) {
+				    alert("Error: " + error.code + " " + error.message);
+				  }
+				});
+
 			}
 		}
 		else {
@@ -327,6 +489,8 @@ $(function() {
 				TweenMax.to(".day:not(#day4)", 0.6, {x:0,onComplete:function() {$(".eventdb").removeClass("left");},ease:Back.easeInOut}, 0.2);
 			}
 			active=0;
+			$('#eventTable tr').slice(1).remove();
+
 		}
 	});
 });
@@ -337,69 +501,3 @@ $(function() {
 
 
 
-<!--
-<main class="full-screen" role="main">
-  <section class="full-screen blue">
-    <div>
-      <h1>Basic Pin</h1>
-      <p>Elements are pinned for their respective pixel value set as the duration and released again.</p>
-    </div>
-  </section>
-
-  <section id="pinned-trigger1" class="full-screen orange">
-    <div id="pinned-element1">
-      <p>This element will be pinned once it's trigger hits the top of the viewport and will have a duration of window height minus 100</p>
-    </div>
-  </section>
-
-  <section id="pinned-trigger2" class="full-screen red">
-    <div id="pinned-element2">
-      <p>This element will be pinned for a duration of 150px</p>
-    </div>
-  </section>
-
-  <section class="full-screen blue">
-    <div>
-      <p>Section Four!</p>
-    </div>
-  </section>
-</main>
-<script>
-controller = new ScrollMagic();
-
-// Scene Handler
-var scene = new ScrollScene({
-  triggerElement: "#pinned-trigger1", // point of execution
-  duration: $(window).height()-100, // pin element for the window height - 1
-  triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
-  reverse: true // allows the effect to trigger when scrolled in the reverse direction
-})
-.setPin("#pinned-element1"); // the element we want to pin
-
-// Scene2 Handler
-var scene2 = new ScrollScene({
-  triggerElement: "#pinned-trigger2", // point of execution
-  duration: 150 // pin the element for a total of 400px
-
-})
-.setPin("#pinned-element2"); // the element we want to pin
-
-
-var scale_tween = TweenMax.to('#pinned-element1', 1, {
-  transform: 'scale(.5)',
-  ease: Linear.easeNone});
-
-var scale_scene = new ScrollScene({
-  triggerElement: '#scale-trigger',
-yoyo:true})
-.setTween(scale_tween);
-
-
-
-// Add Scenes to ScrollMagic Controller
-controller.addScene([
-  scene,
-  scene2,
-  scale_scene
-]);
--->
