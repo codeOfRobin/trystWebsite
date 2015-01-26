@@ -282,7 +282,7 @@ new ScrollScene({
 					.addTo(controller)
 					.triggerHook("onCenter")
 					.setTween(new TimelineMax().add([
-						TweenMax.to("#parallax2", 1, {backgroundPosition: "0 100%", ease: Linear.easeNone}),
+						TweenMax.to("#parallax2", 1, {backgroundPosition: "0 200%", ease: Linear.easeNone}),
 					]));
 
 				var startpin = new ScrollScene({
@@ -325,8 +325,10 @@ $(function() {
 				Parse.initialize("gXMF3SXAsbKMjgjSjzKRNK8djmuyIxoO2LPtlNyJ", "SjNcplOrnIfmaKKcXJeHdBODA5CSE7XNpGn4Cvyp");
 
 				var GameScore = Parse.Object.extend("event");				
-			    var date1 = new Date(Date.parse("2015-03-28 00:00:00"));
+			    var date1 = new Date(Date.parse("2015-02-28 00:00:00"));
+			    date1=new Date(date1.getTime()-330*60000);
 			    var date2 = new Date(Date.parse("2015-03-01 00:00:00"));
+			    date2=new Date(date2.getTime()-330*60000);
 				var query = new Parse.Query(GameScore);
 				query.greaterThan("startingTime",date1);
 			    query.lessThan("startingTime",date2);
@@ -338,12 +340,11 @@ $(function() {
 					for(var i=0; i<results.length; i++)
 					{
 						console.log(results[i].get("startingTime"));
-						if(results[i].get("startingTime").getDate()==1)
-						{	
-						var myRow="<tr><td><a class=\"fancybox\" data-fancybox-type=\"iframe\" href=\"/demo/iframe.html\">"+results[i].get("name")+"</a></td><td>"+results[i].get("venue")+"</td><td>"+results[i].get("category")+"</td><td>1100</td><td>1330</td></tr>"
+						
+						var myRow="<tr><td><a class=\"fancybox\" data-fancybox-type=\"iframe\" href=\"/demo/iframe.html\">"+results[i].get("name")+"</a></td><td>"+results[i].get("venue")+"</td><td>"+results[i].get("category")+"</td><td>"+results[i].get("startingTime")+"</td><td>"+results[i].get("endingTime")+"</td></tr>";
 			 $("#eventTable tr:last").after(myRow);
 					
-						}
+						
 					
 					}
 				  },
